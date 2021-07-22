@@ -1,0 +1,28 @@
+.wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.table {
+    direction: rtl;
+}
+
+.table, .table td, .table th {
+    border-collapse: collapse;
+    text-align: center;
+    width: 80%;
+    border: black 2px solid;
+    padding: 10px;
+}
+
+.table th {
+    background-color: #f6b234;
+}
+
+.table td, .table th {
+    width: 15%;
+}
+
+.table td:first-child, .table td:nth-child(2), .table th:first-child, .table th:nth-child(2) {
+    width: 20%;
+}

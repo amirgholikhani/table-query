@@ -1,0 +1,10 @@
+.wrapper {
+    margin: 30px 0;
+}
+.loading {
+    text-align: center;
+}
+.error {
+    text-align: center;
+    color: #a20303;
+}

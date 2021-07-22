@@ -1,23 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import style from './App.module.css';
+import Table from "./Components/Table";
+import React from "react";
 
 function App() {
+  const [loading, setLoading] = React.useState(false);
+  const [error, setError] = React.useState('');
+  const [data, setData] = React.useState([]);
+  const fetchData = () => {
+    setLoading(true);
+    fetch("data.json")
+      .then(res => res.json())
+      .then(
+        (result) => {
+          setData(result);
+        },
+        (error) => {
+          setError(error);
+        }
+      ).finally(() => {
+        setLoading(false);
+    })
+  }
+
+  React.useEffect(() => {
+    fetchData();
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={style.wrapper}>
+      {loading && <div className={style.loading}>... Loading</div>}
+      {error && <div className={style.error}>{error}</div>}
+      {data.length && <Table data={data.slice(0, 6)} />}
     </div>
   );
 }
