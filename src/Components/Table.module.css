@@ -3,14 +3,20 @@
     justify-content: center;
 }
 
+.tableWrapper {
+    width: 80%;
+    overflow-y: auto;
+    height: 80vh;
+}
+
 .table {
     direction: rtl;
+    width: 100%;
 }
 
 .table, .table td, .table th {
     border-collapse: collapse;
     text-align: center;
-    width: 80%;
     border: black 2px solid;
     padding: 10px;
 }
